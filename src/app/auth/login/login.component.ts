@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private uiService: UIService) {}
+    private uiService: UIService) { }
 
   ngOnInit() {
     this.loadingSubs = this.uiService.loadingStateChanged.subscribe(isLoading => {
@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.loadingSubs.unsubscribe();
+    if (this.loadingSubs) {
+      this.loadingSubs.unsubscribe();
+    }
   }
 
 }
