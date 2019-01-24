@@ -7,6 +7,10 @@ import { Exercise } from "./exercise.model";
 
 import { UIService } from "../shared/ui.service";
 
+import * as UI from "../shared/ui.actions";
+import * as fromRoot from "../app.reducer";
+import { Store } from '@ngrx/store';
+
 @Injectable()
 export class TrainingService {
     exerciseChanged = new Subject<Exercise>();
@@ -18,9 +22,11 @@ export class TrainingService {
 
     constructor(
         private db: AngularFirestore,
-        private uiService: UIService) { }
+        private uiService: UIService,
+        private store: Store<fromRoot.State>) { }
 
     fetchAvailableExercises() {
+        this.store.dispatch(new UI.StartLoading());
         this.fsSubs.push(this.db
             .collection('availableExercises')
             .snapshotChanges()
@@ -38,10 +44,12 @@ export class TrainingService {
                 })
             )
             .subscribe((exercises: Exercise[]) => {
+                this.store.dispatch(new UI.StopLoading());
                 this.availableExercises = exercises;
                 this.exercisesChanged.next([...this.availableExercises]);
             }, error => {
-                this.uiService.loadingStateChanged.next(false);
+                // this.uiService.loadingStateChanged.next(false);
+                this.store.dispatch(new UI.StopLoading());
                 this.uiService.showSnackBar('Fetching Exercises failed, please try again later', null, 3000);
                 this.exercisesChanged.next(null);
             }));
