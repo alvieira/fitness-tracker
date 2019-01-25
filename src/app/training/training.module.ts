@@ -1,5 +1,7 @@
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
+import { StoreModule } from "@ngrx/store";
+import { trainingReducer } from "./training.reducer";
 
 import { TrainingComponent } from "./training.component";
 import { CurrentTrainingComponent } from "./current-training/current-training.component";
@@ -20,7 +22,8 @@ import { TrainingRoutingModule } from "./training-routing.module";
     imports: [        
         ReactiveFormsModule,
         SharedModule,
-        TrainingRoutingModule
+        TrainingRoutingModule,
+        StoreModule.forFeature('training', trainingReducer)
     ],    
     entryComponents: [StopTrainingComponent]
 
