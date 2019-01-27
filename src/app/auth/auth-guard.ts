@@ -2,7 +2,6 @@ import {
     CanActivate,
     ActivatedRouteSnapshot,
     RouterStateSnapshot,
-    Router,
     CanLoad,
     Route
 }
@@ -15,10 +14,7 @@ import { take } from "rxjs/operators";
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
 
-    constructor(
-        // private authService: AuthService,
-        private store: Store<fromRoot.State>,
-        private router: Router) { }
+    constructor(private store: Store<fromRoot.State>) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         // if (this.authService.isAuth()) {
@@ -26,7 +22,7 @@ export class AuthGuard implements CanActivate, CanLoad {
         // } else {
         //     this.router.navigate(['/login']);
         // }
-        return this.store.select(fromRoot.getIsAut).pipe(take(1));
+        return this.store.select(fromRoot.getIsAuth).pipe(take(1));
     }
 
     canLoad(route: Route) {
@@ -35,7 +31,7 @@ export class AuthGuard implements CanActivate, CanLoad {
         // } else {
         //     this.router.navigate(['/login']);
         // }
-        return this.store.select(fromRoot.getIsAut).pipe(take(1));
+        return this.store.select(fromRoot.getIsAuth).pipe(take(1));
     }
 
 }

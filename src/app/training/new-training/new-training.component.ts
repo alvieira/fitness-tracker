@@ -40,7 +40,6 @@ export class NewTrainingComponent implements OnInit {
     // );
 
     this.exercises$ = this.store.select(fromTraining.getAvailableExercises);
-
     this.fetchExercises();
   }
 

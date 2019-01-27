@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { TrainingService } from './training.service';
 import { Store } from '@ngrx/store';
 import * as fromTraining from "./training.reducer";
 
@@ -15,9 +14,7 @@ export class TrainingComponent implements OnInit {
   ongoingTraining$: Observable<boolean>;
   // exerciseSubscription: Subscription;
 
-  constructor(
-    private trainingService: TrainingService,
-    private store: Store<fromTraining.State>) { }
+  constructor(private store: Store<fromTraining.State>) { }
 
   ngOnInit() {
     // this.exerciseSubscription = this.trainingService.exerciseChanged.subscribe(

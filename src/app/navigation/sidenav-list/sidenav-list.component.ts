@@ -29,7 +29,7 @@ export class SidenavListComponent implements OnInit {
     // this.authSubscription = this.authService.authChange.subscribe(authStatus => {
     //   this.isAuth = authStatus;
     // })
-    this.isAuth$ = this.store.select(fromRoot.getIsAut);
+    this.isAuth$ = this.store.select(fromRoot.getIsAuth);
   }
 
   onClose() {
