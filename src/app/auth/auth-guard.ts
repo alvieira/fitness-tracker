@@ -5,11 +5,11 @@ import {
     CanLoad,
     Route
 }
-    from "@angular/router";
-import { Injectable } from "@angular/core";
-import * as fromRoot from "../app.reducer";
-import { Store } from "@ngrx/store";
-import { take } from "rxjs/operators";
+    from '@angular/router';
+import { Injectable } from '@angular/core';
+import * as fromRoot from '../app.reducer';
+import { Store } from '@ngrx/store';
+import { take } from 'rxjs/operators';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {

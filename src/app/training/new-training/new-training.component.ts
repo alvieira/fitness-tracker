@@ -7,8 +7,8 @@ import { TrainingService } from '../training.service';
 import { Exercise } from '../exercise.model';
 // import { UIService } from 'src/app/shared/ui.service';
 import { Store } from '@ngrx/store';
-import * as fromTraining from "../training.reducer";
-import * as fromRoot from "../../app.reducer";
+import * as fromTraining from '../training.reducer';
+import * as fromRoot from '../../app.reducer';
 
 @Component({
   selector: 'app-new-training',

@@ -1,14 +1,14 @@
-import { Subject, Subscription } from "rxjs";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { Injectable } from "@angular/core";
-import { map, take } from "rxjs/operators";
+import { Subject, Subscription } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Injectable } from '@angular/core';
+import { map, take } from 'rxjs/operators';
 
-import { Exercise } from "./exercise.model";
-import { UIService } from "../shared/ui.service";
+import { Exercise } from './exercise.model';
+import { UIService } from '../shared/ui.service';
 
-import * as UI from "../shared/ui.actions";
-import * as fromTraining from "./training.reducer";
-import * as Training from "./training.actions";
+import * as UI from '../shared/ui.actions';
+import * as fromTraining from './training.reducer';
+import * as Training from './training.actions';
 import { Store } from '@ngrx/store';
 
 @Injectable()

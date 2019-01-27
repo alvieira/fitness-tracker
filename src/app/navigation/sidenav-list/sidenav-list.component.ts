@@ -6,7 +6,7 @@ import {
   from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import * as fromRoot from "../../app.reducer";
+import * as fromRoot from '../../app.reducer';
 
 import { AuthService } from 'src/app/auth/auth.service';
 
